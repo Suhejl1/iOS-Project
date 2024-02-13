@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
                                         return
                                     }
                                     
-                                    print("\(finalResult.Search.first?.Title)")
+                                    //print("\(finalResult.Search.first?.Title)")
                                     
                                     //Update movies array
                                     let newMovies = finalResult.Search
