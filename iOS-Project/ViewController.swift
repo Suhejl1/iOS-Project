@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     @IBOutlet var table: UITableView!
     @IBOutlet var field: UITextField!
     
+    var movies = [Movie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,47 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     }
     
-
-
-
+    // Field
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchMovies()
+        return true
+    }
+    
+    func searchMovies() {
+        field.resignFirstResponder()
+        
+        guard let text = field.text, !text.isEmpty else {
+            return
+        }
+    }
+   
+    
+    // Table
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //Show movie details
+    }
 
 }
+
+struct Movie {
+    
+}
+
+
+
+
+
 
 
 
