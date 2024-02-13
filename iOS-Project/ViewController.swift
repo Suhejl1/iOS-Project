@@ -40,8 +40,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         guard let text = field.text, !text.isEmpty else {
             return
         }
+        
+        URLSession.shared.dataTask(with: URL(string: "https://www.omdbapi.com/?apikey=d1f47913&s=fast%20and&type=movie")!,
+                                   completionHandler: {data, response, error in
+                   
+                                    guard let data = data, error == nil else {
+                                        return
+                                    }
+                                    
+                                    //Convert - using codable
+                                    
+                                    //Update movies array
+                                    
+                                    //Refresh our tables
+                                    
+        }).resume()
+        
     }
-   
     
     // Table
     
@@ -60,6 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
 
 }
+
 
 struct Movie {
     
