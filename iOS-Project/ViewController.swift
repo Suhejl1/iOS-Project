@@ -41,7 +41,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             return
         }
         
-        URLSession.shared.dataTask(with: URL(string: "https://www.omdbapi.com/?apikey=d1f47913&s=fast%20and&type=movie")!,
+        let query = text.replacingOccurrences(of: " ", with: "%20")
+        
+        URLSession.shared.dataTask(with: URL(string: "https://www.omdbapi.com/?apikey=d1f47913&s=\(query)&type=movie")!,
                                    completionHandler: {data, response, error in
                    
                                     guard let data = data, error == nil else {
@@ -49,10 +51,28 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
                                     }
                                     
                                     //Convert - using codable
+                                    var result: MovieResult?
+                                    do {
+                                        result = try JSONDecoder().decode(MovieResult.self, from: data)
+                                    }
+                                    catch {
+                                        
+                                    }
+                                    
+                                    guard let finalResult = result else {
+                                        return
+                                    }
+                                    
+                                    print("\(finalResult.Search.first?.Title)")
                                     
                                     //Update movies array
+                                    let newMovies = finalResult.Search
+                                    self.movies.append(contentsOf: newMovies)
                                     
                                     //Refresh our tables
+                                    DispatchQueue.main.async {
+                                        self.table.reloadData()
+                                    }
                                     
         }).resume()
         
@@ -76,9 +96,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
 }
 
+struct MovieResult: Codable {
+    let Search: [Movie]
+}
 
-struct Movie {
+struct Movie: Codable {
+    let Title: String
+    let Year: String
+    let imdbID: String
+    let _Type: String
+    let Poster: String
     
+    private enum CodingKeys: String, CodingKey {
+        case Title, Year, imdbID, _Type = "Type", Poster
+    }
 }
 
 
