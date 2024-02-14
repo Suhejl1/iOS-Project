@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier)
         table.delegate = self
         table.dataSource = self
         field.delegate = self
@@ -65,6 +66,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
                                     
                                     //print("\(finalResult.Search.first?.Title)")
                                     
+                                    self.movies.removeAll()
+                                    
                                     //Update movies array
                                     let newMovies = finalResult.Search
                                     self.movies.append(contentsOf: newMovies)
@@ -85,7 +88,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as! MovieTableViewCell
+        
+        cell.configure(with: movies[indexPath.row])
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

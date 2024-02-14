@@ -20,53 +20,46 @@
                 <rect key="frame" x="0.0" y="0.0" width="559" height="222.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v64-K3-vMA">
-                        <rect key="frame" x="10" y="10" width="200" height="202"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-u9-nFs">
+                        <rect key="frame" x="30" y="21" width="200" height="181"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="bWt-8m-ci8"/>
+                            <constraint firstAttribute="width" constant="200" id="tXg-7S-WoM"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22c-45-CL3">
-                        <rect key="frame" x="230" y="21" width="293" height="80"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPP-NC-0Ka">
+                        <rect key="frame" x="250" y="21" width="279" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="GbS-eg-ZcZ"/>
+                            <constraint firstAttribute="height" constant="80" id="VvS-wc-ewj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXm-kn-1UX">
-                        <rect key="frame" x="230" y="119" width="293" height="73"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr0-tH-0lD">
+                        <rect key="frame" x="250" y="111" width="279" height="81"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="v64-K3-vMA" secondAttribute="bottom" constant="10" id="8er-kc-R3h"/>
-                    <constraint firstItem="v64-K3-vMA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CrA-nM-79a"/>
-                    <constraint firstItem="v64-K3-vMA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Nk4-fC-ZVI"/>
-                    <constraint firstItem="jXm-kn-1UX" firstAttribute="leading" secondItem="v64-K3-vMA" secondAttribute="trailing" constant="20" id="Oh1-g9-saD"/>
-                    <constraint firstAttribute="trailing" secondItem="v64-K3-vMA" secondAttribute="trailing" constant="10" id="Pjc-i1-qVR"/>
-                    <constraint firstAttribute="trailing" secondItem="v64-K3-vMA" secondAttribute="trailing" constant="343" id="RWf-kQ-2Yd"/>
-                    <constraint firstItem="jXm-kn-1UX" firstAttribute="top" secondItem="22c-45-CL3" secondAttribute="bottom" constant="10" id="YAS-zH-MWQ"/>
-                    <constraint firstItem="22c-45-CL3" firstAttribute="leading" secondItem="v64-K3-vMA" secondAttribute="trailing" constant="20" id="ZfP-OL-fmk"/>
-                    <constraint firstItem="v64-K3-vMA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="b5H-qu-OhB"/>
-                    <constraint firstAttribute="bottom" secondItem="v64-K3-vMA" secondAttribute="bottom" constant="10" id="dDa-ge-3r5"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="jXm-kn-1UX" secondAttribute="trailing" constant="10" id="hLf-qh-oof"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="22c-45-CL3" secondAttribute="bottom" constant="85" id="hxm-Wg-80r"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jXm-kn-1UX" secondAttribute="bottom" constant="20" id="o2h-4Q-v8j"/>
-                    <constraint firstAttribute="trailing" secondItem="v64-K3-vMA" secondAttribute="trailing" constant="343" id="qTv-aJ-BjH"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="22c-45-CL3" secondAttribute="trailing" constant="10" id="qy4-Ef-UFE"/>
-                    <constraint firstItem="v64-K3-vMA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="t3C-f8-5Xh"/>
-                    <constraint firstItem="22c-45-CL3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="uZR-p0-L5x"/>
+                    <constraint firstItem="CPP-NC-0Ka" firstAttribute="leading" secondItem="eDF-u9-nFs" secondAttribute="trailing" constant="20" id="6lT-SO-Bsn"/>
+                    <constraint firstItem="Cr0-tH-0lD" firstAttribute="leading" secondItem="eDF-u9-nFs" secondAttribute="trailing" constant="20" id="8Tf-Jh-qgp"/>
+                    <constraint firstItem="CPP-NC-0Ka" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="HOT-oW-dGj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CPP-NC-0Ka" secondAttribute="trailing" constant="10" id="KGF-cB-FXe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Cr0-tH-0lD" secondAttribute="bottom" constant="20" id="Kdh-Se-bpF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Cr0-tH-0lD" secondAttribute="trailing" constant="10" id="Qgx-f6-bDs"/>
+                    <constraint firstItem="eDF-u9-nFs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="Y4v-j5-MsC"/>
+                    <constraint firstItem="Cr0-tH-0lD" firstAttribute="top" secondItem="CPP-NC-0Ka" secondAttribute="bottom" constant="10" id="iJU-eU-3Bn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eDF-u9-nFs" secondAttribute="bottom" constant="10" id="p7f-3G-1Un"/>
+                    <constraint firstItem="eDF-u9-nFs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="xgP-Yv-MUe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="moviePosterImageView" destination="v64-K3-vMA" id="8LA-Mm-TuQ"/>
-                <outlet property="movieTitleLabel" destination="22c-45-CL3" id="dth-sf-gJC"/>
-                <outlet property="movieYearLabel" destination="jXm-kn-1UX" id="wfD-FM-HZD"/>
+                <outlet property="moviePosterImageView" destination="eDF-u9-nFs" id="bkO-ei-DEQ"/>
+                <outlet property="movieTitleLabel" destination="CPP-NC-0Ka" id="btT-Xr-PK3"/>
+                <outlet property="movieYearLabel" destination="Cr0-tH-0lD" id="ps3-wt-YqK"/>
             </connections>
             <point key="canvasLocation" x="-94.5" y="141.5"/>
         </tableViewCell>
