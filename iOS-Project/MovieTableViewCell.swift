@@ -13,6 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieTitleLabel: UILabel!
     @IBOutlet var movieYearLabel: UILabel!
     @IBOutlet var moviePosterImageView: UIImageView!
+    @IBOutlet var likeMovie: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,8 @@ class MovieTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    weak var delgate: MovieTableViewCellDelgate?
     
     static let identifier = "MovieTableViewCell"
     
@@ -38,4 +41,13 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func likeButtonPressed(_ sender: UIButton){
+        delgate?.didTapLikeButton(for: self)
+    }
+    
+    
+}
+
+protocol MovieTableViewCellDelgate: AnyObject {
+    func didTapLikeButton(for cell: MovieTableViewCell)
 }

@@ -41,6 +41,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiN-95-VNn">
+                        <rect key="frame" x="521" y="96" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Like"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="CPP-NC-0Ka" firstAttribute="leading" secondItem="eDF-u9-nFs" secondAttribute="trailing" constant="20" id="6lT-SO-Bsn"/>
@@ -57,6 +62,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="likeMovie" destination="GiN-95-VNn" id="8tu-gX-My0"/>
                 <outlet property="moviePosterImageView" destination="eDF-u9-nFs" id="bkO-ei-DEQ"/>
                 <outlet property="movieTitleLabel" destination="CPP-NC-0Ka" id="btT-Xr-PK3"/>
                 <outlet property="movieYearLabel" destination="Cr0-tH-0lD" id="ps3-wt-YqK"/>

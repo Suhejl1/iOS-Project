@@ -14,10 +14,12 @@ import SafariServices
 // tap a cell to see info about the movies
 // custom cell
 
-class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelgate {
     
     @IBOutlet var table: UITableView!
     @IBOutlet var field: UITextField!
+    
+    var thirdViewController: ThirdViewController?
     
     var movies = [Movie]()
 
@@ -27,6 +29,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         table.delegate = self
         table.dataSource = self
         field.delegate = self
+        
+        if let thirdVC = storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as? ThirdViewController {
+            thirdViewController = thirdVC
+        }
     
     }
     
@@ -82,6 +88,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
     }
     
+    func didTapLikeButton(for cell: MovieTableViewCell) {
+        guard let indexPath = table.indexPath(for: cell) else {
+            return
+        }
+        
+        let likedMovie = movies[indexPath.row]
+        thirdViewController?.addLikedMovie(likedMovie)
+        
+        
+    }
+    
     // Table
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +107,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as! MovieTableViewCell
+        cell.delgate = self
         
         cell.configure(with: movies[indexPath.row])
         
@@ -99,11 +117,26 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //Show movie details
-        let url = "https://www.imdb.com/title/\(movies[indexPath.row].imdbID)/"
-        let vc = SFSafariViewController(url: URL(string: url)!)
-        present(vc, animated: true)
+        // Get the selected movie
+        let selectedMovie = movies[indexPath.row]
+        
+        // Assuming the index of the third tab is 2
+        self.tabBarController?.selectedIndex = 2
+        
+        // Get the reference to the tabBarController
+        if let tabBarController = self.tabBarController {
+            // Loop through the view controllers to find ThirdViewController
+            for viewController in tabBarController.viewControllers ?? [] {
+                if let navController = viewController as? UINavigationController,
+                    let thirdVC = navController.topViewController as? ThirdViewController {
+                    
+                    // Add the selected movie to the liked movies list in ThirdViewController
+                    thirdVC.addLikedMovie(selectedMovie)
+                }
+            }
+        }
     }
+
 
 }
 
