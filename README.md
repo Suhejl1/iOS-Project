@@ -10,6 +10,9 @@ Ky eshte nje iOS Project qe i lejon userat me search per ndonje film duke perdor
 - Ruaj te dhenat e filmave te preferuar ne DB duke perdorur SQLite
 
 # Screenshots
+- Struktura e views:
+  ![Screen Shot 2024-02-16 at 7 32 13 PM](https://github.com/Suhejl1/iOS-Project/assets/121341827/e8f46a6f-eb67-4f30-a14d-d740bb30f3ff)
+
 
 # Prerequisites
 - Xcode 9
