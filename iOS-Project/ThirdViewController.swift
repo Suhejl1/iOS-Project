@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -44,13 +45,15 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    // MARK: - Table View Delegate
-    
-    // Implement UITableViewDelegate methods if needed
-    
-    // ...
-    
-    // MARK: - Custom Method to Add Liked Movie
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedMovie = likedMovies[indexPath.row]
+        
+        let url = "https://www.imdb.com/title/\(selectedMovie.imdbID)/"
+        let vc = SFSafariViewController(url: URL(string: url)!)
+        present(vc, animated: true)
+    }
     
     func addLikedMovie(_ likedMovie: Movie) {
         likedMovies.append(likedMovie)
