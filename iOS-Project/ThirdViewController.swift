@@ -17,14 +17,12 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier)
         
-        // Open the SQLite database
         if sqlite3_open(getDBPath(), &db) == SQLITE_OK {
             createTable()
         }
     }
     
     deinit {
-        // Close the SQLite database when the view controller is deallocated
         sqlite3_close(db)
     }
     
@@ -70,7 +68,7 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Insert the liked movie into the SQLite database
         if insertMovieIntoDB(movie: likedMovie) {
             // Print a success message
-            print("Movie added to favorites successfully.")
+            print("Movie added to DBtable successfully.")
         } else {
             // Print an error message
             print("Failed to add the movie to favorites.")
@@ -96,7 +94,7 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
             // Remove the liked movie from the SQLite database
             if removeMovieFromDB(movie: removedMovie) {
                 // Print a success message
-                print("Movie removed from favorites successfully.")
+                print("Movie removed from DBtable successfully.")
             } else {
                 // Print an error message
                 print("Failed to remove the movie from favorites.")

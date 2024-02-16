@@ -10,9 +10,7 @@ import UIKit
 import SafariServices
 
 // UI
-// Network request
-// tap a cell to see info about the movies
-// custom cell
+
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, MovieTableViewCellDelgate {
     
