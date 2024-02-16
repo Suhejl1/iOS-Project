@@ -125,28 +125,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-30-ISI">
-                                <rect key="frame" x="10" y="74" width="355" height="534"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-30-ISI">
+                                <rect key="frame" x="10" y="113" width="355" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Favorite Movies List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU5-NV-wzp">
+                                <rect key="frame" x="104" y="75" width="166" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.084561698138713837" green="0.29197207093238831" blue="0.37630710005760193" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EU5-NV-wzp" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="3hA-7x-LZX"/>
                             <constraint firstItem="o0a-30-ISI" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="AXP-4M-FPR"/>
+                            <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="EU5-NV-wzp" secondAttribute="trailing" constant="10" id="Fpe-6M-VmO"/>
                             <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="o0a-30-ISI" secondAttribute="trailing" constant="10" id="GvP-IJ-cnK"/>
+                            <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="o0a-30-ISI" secondAttribute="trailing" constant="10" id="KMl-ub-MsJ"/>
+                            <constraint firstItem="o0a-30-ISI" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="MqM-om-1lA"/>
                             <constraint firstItem="MrH-7Z-VBg" firstAttribute="bottom" secondItem="o0a-30-ISI" secondAttribute="bottom" constant="10" id="S1S-WH-7VD"/>
+                            <constraint firstItem="EU5-NV-wzp" firstAttribute="top" secondItem="MrH-7Z-VBg" secondAttribute="top" constant="10" id="XOs-ok-wFc"/>
                             <constraint firstItem="o0a-30-ISI" firstAttribute="top" secondItem="MrH-7Z-VBg" secondAttribute="top" constant="10" id="Zpa-0d-GPl"/>
+                            <constraint firstItem="o0a-30-ISI" firstAttribute="top" secondItem="EU5-NV-wzp" secondAttribute="bottom" constant="10" id="fRq-s0-SGt"/>
+                            <constraint firstAttribute="bottom" secondItem="o0a-30-ISI" secondAttribute="bottom" constant="10" id="wgL-qv-S9i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MrH-7Z-VBg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="r4P-5j-ZCp"/>
+                    <navigationItem key="navigationItem" id="r4P-5j-ZCp">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="xV2-zu-58G">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LPe-3Q-KoM">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remove"/>
+                                <connections>
+                                    <action selector="removeButtonPressed:" destination="1MS-PR-8Uf" eventType="touchUpInside" id="Tob-ad-R8X"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="o0a-30-ISI" id="jUW-gY-eaq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDK-CQ-fO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="1524"/>
+            <point key="canvasLocation" x="300" y="1523.3883058470765"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

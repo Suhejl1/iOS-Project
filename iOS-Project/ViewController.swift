@@ -33,10 +33,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         if let thirdVC = storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as? ThirdViewController {
             thirdViewController = thirdVC
         }
+        
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        doubleTapGesture.numberOfTapsRequired = 2
+        table.addGestureRecognizer(doubleTapGesture)
     
     }
-    
-    // Field
+    @objc func doubleTapped(on indexPath: IndexPath) {
+        
+            let url = "https://www.imdb.com/title/\(movies[indexPath.row].imdbID)/"
+            let vc = SFSafariViewController(url: URL(string: url)!)
+            present(vc, animated: true)
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchMovies()
         return true
@@ -52,41 +62,48 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let query = text.replacingOccurrences(of: " ", with: "%20")
         
         URLSession.shared.dataTask(with: URL(string: "https://www.omdbapi.com/?apikey=d1f47913&s=\(query)&type=movie")!,
-                                   completionHandler: {data, response, error in
-                   
+                                   completionHandler: { data, response, error in
+                                    
                                     guard let data = data, error == nil else {
+                                        // Handle error
+                                        print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
                                         return
                                     }
                                     
-                                    //Convert - using codable
                                     var result: MovieResult?
                                     do {
                                         result = try JSONDecoder().decode(MovieResult.self, from: data)
-                                    }
-                                    catch {
-                                        
+                                    } catch {
+                                        // Handle JSON decoding error
+                                        print("Error decoding JSON: \(error.localizedDescription)")
                                     }
                                     
                                     guard let finalResult = result else {
+                                        // Show alert if there are no search results
+                                        DispatchQueue.main.async {
+                                            self.showNoResultsAlert()
+                                        }
                                         return
                                     }
                                     
-                                    //print("\(finalResult.Search.first?.Title)")
-                                    
                                     self.movies.removeAll()
                                     
-                                    //Update movies array
                                     let newMovies = finalResult.Search
                                     self.movies.append(contentsOf: newMovies)
                                     
-                                    //Refresh our tables
                                     DispatchQueue.main.async {
                                         self.table.reloadData()
                                     }
                                     
         }).resume()
-        
     }
+    
+    func showNoResultsAlert() {
+        let alert = UIAlertController(title: "No Results", message: "Your search returned no results.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     func didTapLikeButton(for cell: MovieTableViewCell) {
         guard let indexPath = table.indexPath(for: cell) else {
@@ -117,24 +134,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Get the selected movie
         let selectedMovie = movies[indexPath.row]
         
-        // Assuming the index of the third tab is 2
         self.tabBarController?.selectedIndex = 2
         
-        // Get the reference to the tabBarController
         if let tabBarController = self.tabBarController {
-            // Loop through the view controllers to find ThirdViewController
             for viewController in tabBarController.viewControllers ?? [] {
                 if let navController = viewController as? UINavigationController,
                     let thirdVC = navController.topViewController as? ThirdViewController {
                     
-                    // Add the selected movie to the liked movies list in ThirdViewController
                     thirdVC.addLikedMovie(selectedMovie)
                 }
             }
         }
+        
+        doubleTapped(on: indexPath)
     }
 
 

@@ -8,12 +8,14 @@
 
 import UIKit
 import SafariServices
+import SQLite3
 
 class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var removeBtn: UIButton!
     
-    var likedMovies = [Movie]() // Assuming you have a Movie model
+    var likedMovies = [Movie]() 
     
     weak var delegateViewController: ViewController?
     
@@ -24,11 +26,7 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.register(MovieTableViewCell.nib(), forCellReuseIdentifier: MovieTableViewCell.identifier)
         
-        // Additional setup code for your tableView, if needed
-        // ...
     }
-    
-    // MARK: - Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return likedMovies.count
@@ -37,22 +35,10 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
         
-        // Configure the cell with liked movie data
         let likedMovie = likedMovies[indexPath.row]
         cell.configure(with: likedMovie)
-        // Set the movie image using your UIImageView in the LikedMoviesTableViewCell
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let selectedMovie = likedMovies[indexPath.row]
-        
-        let url = "https://www.imdb.com/title/\(selectedMovie.imdbID)/"
-        let vc = SFSafariViewController(url: URL(string: url)!)
-        present(vc, animated: true)
     }
     
     func addLikedMovie(_ likedMovie: Movie) {
@@ -69,6 +55,13 @@ class ThirdViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
         
+    }
+    
+    @IBAction func removeButtonPressed(_ sender: UIButton) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            likedMovies.remove(at: selectedIndexPath.row)
+            tableView.reloadData()
+        }
     }
     
 
