@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="Fbu-uQ-H29">
             <objects>
                 <navigationController id="eo0-7p-0RI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="1mc-Wp-yB3"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="1mc-Wp-yB3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T7G-1C-XDa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-1767" y="690"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="vLC-s9-o29">
             <objects>
                 <navigationController id="Zaf-rW-CIo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="sJF-u9-TdF"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="sJF-u9-TdF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rbe-11-pwv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="-743" y="690"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="CIT-KW-sKn">
             <objects>
                 <viewController id="oJq-OM-d5D" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                         <color key="backgroundColor" red="0.89809805154800415" green="0.97267109155654907" blue="0.93847411870956421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="b8K-iQ-6Wb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bwk-be-vKc"/>
+                    <navigationItem key="navigationItem" title="Home" id="bwk-be-vKc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reK-Vl-U4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,11 +100,11 @@
             </objects>
             <point key="canvasLocation" x="-742" y="-146"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="k6C-9x-ENP">
             <objects>
                 <navigationController id="8JZ-jY-IFL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xwi-uw-Sik"/>
+                    <tabBarItem key="tabBarItem" title="List" id="xwi-uw-Sik"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAF-pA-yGs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -117,37 +117,28 @@
             </objects>
             <point key="canvasLocation" x="300" y="690"/>
         </scene>
-        <!--Third View Controller-->
+        <!--Favorite Movies List-->
         <scene sceneID="s45-tO-O1J">
             <objects>
-                <viewController storyboardIdentifier="ThirdViewController" id="1MS-PR-8Uf" customClass="ThirdViewController" customModule="iOS_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" title="Favorite Movies List" id="1MS-PR-8Uf" customClass="ThirdViewController" customModule="iOS_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rfR-hm-Pnv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-30-ISI">
-                                <rect key="frame" x="10" y="113" width="355" height="495"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o0a-30-ISI">
+                                <rect key="frame" x="10" y="74" width="355" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Favorite Movies List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU5-NV-wzp">
-                                <rect key="frame" x="104" y="75" width="166" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.084561698138713837" green="0.29197207093238831" blue="0.37630710005760193" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EU5-NV-wzp" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="3hA-7x-LZX"/>
                             <constraint firstItem="o0a-30-ISI" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="AXP-4M-FPR"/>
-                            <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="EU5-NV-wzp" secondAttribute="trailing" constant="10" id="Fpe-6M-VmO"/>
                             <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="o0a-30-ISI" secondAttribute="trailing" constant="10" id="GvP-IJ-cnK"/>
                             <constraint firstItem="MrH-7Z-VBg" firstAttribute="trailing" secondItem="o0a-30-ISI" secondAttribute="trailing" constant="10" id="KMl-ub-MsJ"/>
                             <constraint firstItem="o0a-30-ISI" firstAttribute="leading" secondItem="MrH-7Z-VBg" secondAttribute="leading" constant="10" id="MqM-om-1lA"/>
                             <constraint firstItem="MrH-7Z-VBg" firstAttribute="bottom" secondItem="o0a-30-ISI" secondAttribute="bottom" constant="10" id="S1S-WH-7VD"/>
-                            <constraint firstItem="EU5-NV-wzp" firstAttribute="top" secondItem="MrH-7Z-VBg" secondAttribute="top" constant="10" id="XOs-ok-wFc"/>
                             <constraint firstItem="o0a-30-ISI" firstAttribute="top" secondItem="MrH-7Z-VBg" secondAttribute="top" constant="10" id="Zpa-0d-GPl"/>
-                            <constraint firstItem="o0a-30-ISI" firstAttribute="top" secondItem="EU5-NV-wzp" secondAttribute="bottom" constant="10" id="fRq-s0-SGt"/>
+                            <constraint firstItem="o0a-30-ISI" firstAttribute="top" secondItem="MrH-7Z-VBg" secondAttribute="top" constant="10" id="wWG-SJ-NTF"/>
                             <constraint firstAttribute="bottom" secondItem="o0a-30-ISI" secondAttribute="bottom" constant="10" id="wgL-qv-S9i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MrH-7Z-VBg"/>
@@ -172,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="300" y="1523.3883058470765"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="Search" id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
